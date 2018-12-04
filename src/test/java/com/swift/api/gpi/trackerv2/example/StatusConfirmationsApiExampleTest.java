@@ -1,5 +1,5 @@
 
-package com.swift.api.gpi.tracker_v2.example;
+package com.swift.api.gpi.trackerv2.example;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,19 +15,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.swift.api.gpi.tracker_v2.ApiException;
-import com.swift.api.gpi.tracker_v2.ApiResponse;
-import com.swift.api.gpi.tracker_v2.api.StatusConfirmationsApi;
-import com.swift.api.gpi.tracker_v2.helper.UtilHelper;
-import com.swift.api.gpi.tracker_v2.model.ActiveOrHistoricCurrencyAndAmount;
-import com.swift.api.gpi.tracker_v2.model.CamtA0100103;
-import com.swift.api.gpi.tracker_v2.model.CamtA0100202;
-import com.swift.api.gpi.tracker_v2.model.PaymentReason1Code;
-import com.swift.api.gpi.tracker_v2.model.PaymentStatus3;
-import com.swift.api.gpi.tracker_v2.model.PaymentStatusType2Choice;
-import com.swift.api.gpi.tracker_v2.model.StatusDetails2;
-import com.swift.api.gpi.tracker_v2.model.TransactionIndividualStatus4Code;
-import com.swift.api.gpi.tracker_v2.model.UpdatePaymentStatusRequest;
+import com.swift.api.gpi.trackerv2.ApiException;
+import com.swift.api.gpi.trackerv2.ApiResponse;
+import com.swift.api.gpi.trackerv2.api.StatusConfirmationsApi;
+import com.swift.api.gpi.trackerv2.helper.UtilHelper;
+import com.swift.api.gpi.trackerv2.model.ActiveOrHistoricCurrencyAndAmount;
+import com.swift.api.gpi.trackerv2.model.CamtA0100103;
+import com.swift.api.gpi.trackerv2.model.CamtA0100202;
+import com.swift.api.gpi.trackerv2.model.PaymentReason1Code;
+import com.swift.api.gpi.trackerv2.model.PaymentStatus3;
+import com.swift.api.gpi.trackerv2.model.PaymentStatusType2Choice;
+import com.swift.api.gpi.trackerv2.model.StatusDetails2;
+import com.swift.api.gpi.trackerv2.model.TransactionIndividualStatus4Code;
+import com.swift.api.gpi.trackerv2.model.UpdatePaymentStatusRequest;
 
 import junitparams.JUnitParamsRunner;
 
@@ -62,14 +62,7 @@ public class StatusConfirmationsApiExampleTest {
 		xApi = UtilHelper.getInstance().mymap.get("xApi");
 		signnature_required = Boolean
 				.parseBoolean(UtilHelper.getInstance().mymap.get("StatusConfirmationsApiTest.signatureRequired"));
-		uri = null;
-		api.getApiClient().setBasePath("https://sandbox.swiftlab-api-developer.com/swift-apitracker-pilot/v2");
-
-		try {
-			uri = new URI(api.getApiClient().getBasePath());
-		} catch (URISyntaxException ex) {
-			Logger.getLogger("Tracker API").log(Level.SEVERE, null, ex);
-		}
+		
 	}
 
 	@Test

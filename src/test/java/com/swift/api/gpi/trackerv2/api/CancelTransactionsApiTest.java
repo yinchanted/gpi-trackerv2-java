@@ -1,4 +1,4 @@
-package com.swift.api.gpi.tracker_v2.api;
+package com.swift.api.gpi.trackerv2.api;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -6,14 +6,14 @@ import static org.mockito.Mockito.when;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.swift.api.gpi.tracker_v2.ApiException;
-import com.swift.api.gpi.tracker_v2.ApiResponse;
-import com.swift.api.gpi.tracker_v2.model.CamtA0600102;
-import com.swift.api.gpi.tracker_v2.model.CamtA0600202;
-import com.swift.api.gpi.tracker_v2.model.CancelTransactionRequest;
-import com.swift.api.gpi.tracker_v2.model.CancellationReason6Code;
-import com.swift.api.gpi.tracker_v2.model.CancellationRequestDetails1;
-import com.swift.api.gpi.tracker_v2.model.PendingPaymentCancellationReason2Code;
+import com.swift.api.gpi.trackerv2.ApiException;
+import com.swift.api.gpi.trackerv2.ApiResponse;
+import com.swift.api.gpi.trackerv2.model.CamtA0600102;
+import com.swift.api.gpi.trackerv2.model.CamtA0600202;
+import com.swift.api.gpi.trackerv2.model.CancelTransactionRequest;
+import com.swift.api.gpi.trackerv2.model.CancellationReason6Code;
+import com.swift.api.gpi.trackerv2.model.CancellationRequestDetails1;
+import com.swift.api.gpi.trackerv2.model.PendingPaymentCancellationReason2Code;
 
 public class CancelTransactionsApiTest {
 

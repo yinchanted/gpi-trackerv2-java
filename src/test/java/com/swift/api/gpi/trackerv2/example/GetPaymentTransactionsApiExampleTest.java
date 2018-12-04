@@ -1,4 +1,4 @@
-package com.swift.api.gpi.tracker_v2.example;
+package com.swift.api.gpi.trackerv2.example;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
@@ -16,24 +16,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.swift.api.gpi.tracker_v2.ApiException;
-import com.swift.api.gpi.tracker_v2.ApiResponse;
-import com.swift.api.gpi.tracker_v2.api.GetInvalidEventsApi;
-import com.swift.api.gpi.tracker_v2.helper.UtilHelper;
-import com.swift.api.gpi.tracker_v2.model.CamtA0500103;
-import com.swift.api.gpi.tracker_v2.model.CamtA0500203;
-import com.swift.api.gpi.tracker_v2.model.GetInvalidEventsRequest;
+import com.swift.api.gpi.trackerv2.ApiException;
+import com.swift.api.gpi.trackerv2.ApiResponse;
+import com.swift.api.gpi.trackerv2.api.GetPaymentTransactionsApi;
+import com.swift.api.gpi.trackerv2.helper.UtilHelper;
+import com.swift.api.gpi.trackerv2.model.CamtA0300103;
+import com.swift.api.gpi.trackerv2.model.CamtA0300203;
+import com.swift.api.gpi.trackerv2.model.DateTimePeriodDetails;
+import com.swift.api.gpi.trackerv2.model.GetPaymentTransactionsRequest;
 
 import junitparams.JUnitParamsRunner;
 
 /**
- * API tests for GetInvalidEventsApi
+ * API tests for GetPaymentTransactionsApi
  */
-
 @RunWith(JUnitParamsRunner.class)
-public class GetInvalidEventsApiExampleTest {
+public class GetPaymentTransactionsApiExampleTest {
 
-	private final static GetInvalidEventsApi api = new GetInvalidEventsApi();
+	private final static GetPaymentTransactionsApi api = new GetPaymentTransactionsApi();
 
 	static String laUApplicationID;
 	static String laUVersion;
@@ -58,27 +58,23 @@ public class GetInvalidEventsApiExampleTest {
 		laUSignature = UtilHelper.getInstance().mymap.get("laUSignature");
 		xApi = UtilHelper.getInstance().mymap.get("xApi");
 		signnature_required = Boolean
-				.parseBoolean(UtilHelper.getInstance().mymap.get("GetInvalidEventsApiTest.signatureRequired"));
-		uri = null;
-		api.getApiClient().setBasePath("https://sandbox.swiftlab-api-developer.com/swift-apitracker-pilot/v2");
+				.parseBoolean(UtilHelper.getInstance().mymap.get("GetPaymentTransactionsApiTest.signatureRequired"));
 
-		try {
-			uri = new URI(api.getApiClient().getBasePath());
-		} catch (URISyntaxException ex) {
-			Logger.getLogger("Tracker API").log(Level.SEVERE, null, ex);
-		}
 	}
 
 	@Test
-	public void getInvalidEventsPostTest() throws ApiException, NoSuchAlgorithmException, IOException,
-			ProcessingException, URISyntaxException, InterruptedException {
+	public void getPaymentTransactionsPostTest()
+			throws ApiException, NoSuchAlgorithmException, IOException, InterruptedException {
 		Thread.sleep(2000);
-		CamtA0500103 requestBody = new CamtA0500103();
-		requestBody.setGetInvalidEventsRequest(new GetInvalidEventsRequest());
+		CamtA0300103 requestBody = new CamtA0300103();
+		requestBody.setGetPaymentTransactionsRequest(new GetPaymentTransactionsRequest());
 		List<String> myInstitution = asList("CCLABEB0");
-		requestBody.getGetInvalidEventsRequest().setMyInstitution(myInstitution);
-		requestBody.getGetInvalidEventsRequest().setFromDateTime("2017-05-25T09:00:00.000Z");
-		requestBody.getGetInvalidEventsRequest().setToDateTime("2017-05-25T17:30:00.000Z");
+		requestBody.getGetPaymentTransactionsRequest().setMyInstitution(myInstitution);
+		requestBody.getGetPaymentTransactionsRequest().setTimeWindow(new DateTimePeriodDetails());
+		requestBody.getGetPaymentTransactionsRequest().getTimeWindow().setFromDateTime("2017-06-17T09:45:16.058Z");
+		requestBody.getGetPaymentTransactionsRequest().getTimeWindow().setToDateTime("2017-06-18T09:45:16.058Z");
+		// requestBody.getGetPaymentTransactionsRequest().setEvent(PaymentTransactionState1Code.RCCA);
+		requestBody.getGetPaymentTransactionsRequest().setMaximumNumber("10");
 
 		// Print the JSON structure constructed
 		System.out.println(api.getApiClient().getJSON().serialize(requestBody));
@@ -91,27 +87,26 @@ public class GetInvalidEventsApiExampleTest {
 
 		// Call API
 
-		ApiResponse<CamtA0500203> response = api.getInvalidEventsPostWithHttpInfo(laUApplicationID, laUVersion,
+		ApiResponse<CamtA0300203> response = api.getPaymentTransactionsPostWithHttpInfo(laUApplicationID, laUVersion,
 				laUCallTime, laURequestNonce, laUSigned, laUSignature, xApi, requestBody);
 		// Print response
-		CamtA0500203 responseBody = response.getData();
+		CamtA0300203 responseBody = response.getData();
 		System.out.println(api.getApiClient().getJSON().serialize(responseBody));
-		System.out.println(response.getStatusCode());
 
 	}
 
 	@Test
-	public void getInvalidEventsPost404ErrorTest() throws ApiException, NoSuchAlgorithmException, IOException,
+	public void getPaymentTransactionsPost404ErrorTest() throws ApiException, NoSuchAlgorithmException, IOException,
 			ProcessingException, URISyntaxException, InterruptedException {
 		Thread.sleep(2000);
-		CamtA0500103 requestBody = new CamtA0500103();
-		CamtA0500203 responseBody = null;
+		CamtA0300103 requestBody = new CamtA0300103();
+		CamtA0300203 responseBody = null;
 		try {
-			ApiResponse<CamtA0500203> response = api.getInvalidEventsPostWithHttpInfo(laUApplicationID, laUVersion,
-					laUCallTime, laURequestNonce, laUSigned, laUSignature, xApi, requestBody);
+			ApiResponse<CamtA0300203> response = api.getPaymentTransactionsPostWithHttpInfo(laUApplicationID,
+					laUVersion, laUCallTime, laURequestNonce, laUSigned, laUSignature, xApi, requestBody);
 			// Print response
 			responseBody = response.getData();
-			System.out.println(responseBody.getGetInvalidEventsResponse());
+			System.out.println(responseBody.getGetPaymentTransactionsResponse());
 			System.out.println(api.getApiClient().getJSON().serialize(responseBody));
 		} catch (ApiException e) {
 			// TODO: handle exception
@@ -123,17 +118,17 @@ public class GetInvalidEventsApiExampleTest {
 	}
 
 	@Test
-	public void getInvalidEventsPost401ErrorTestWithInvalidXApi() throws ApiException, NoSuchAlgorithmException,
+	public void getPaymentTransactionsPost401ErrorTestWithInvalidXApi() throws ApiException, NoSuchAlgorithmException,
 			IOException, ProcessingException, URISyntaxException, InterruptedException {
 		Thread.sleep(2000);
-		CamtA0500103 requestBody = new CamtA0500103();
-		CamtA0500203 responseBody = null;
+		CamtA0300103 requestBody = new CamtA0300103();
+		CamtA0300203 responseBody = null;
 		try {
-			ApiResponse<CamtA0500203> response = api.getInvalidEventsPostWithHttpInfo(laUApplicationID, laUVersion,
-					laUCallTime, laURequestNonce, laUSigned, laUSignature, "wrong", requestBody);
+			ApiResponse<CamtA0300203> response = api.getPaymentTransactionsPostWithHttpInfo(laUApplicationID,
+					laUVersion, laUCallTime, laURequestNonce, laUSigned, laUSignature, "wrong", requestBody);
 			// Print response
 			responseBody = response.getData();
-			System.out.println(responseBody.getGetInvalidEventsResponse());
+			System.out.println(responseBody.getGetPaymentTransactionsResponse());
 			System.out.println(api.getApiClient().getJSON().serialize(responseBody));
 		} catch (ApiException e) {
 			// TODO: handle exception

@@ -1,4 +1,4 @@
-package com.swift.api.gpi.tracker_v2.example;
+package com.swift.api.gpi.trackerv2.example;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,18 +16,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.swift.api.gpi.tracker_v2.ApiException;
-import com.swift.api.gpi.tracker_v2.ApiResponse;
-import com.swift.api.gpi.tracker_v2.api.CancellationStatusConfirmationsApi;
-import com.swift.api.gpi.tracker_v2.helper.UtilHelper;
-import com.swift.api.gpi.tracker_v2.model.CamtA0700102;
-import com.swift.api.gpi.tracker_v2.model.CamtA0700202;
-import com.swift.api.gpi.tracker_v2.model.CancellationResponseDetails1;
-import com.swift.api.gpi.tracker_v2.model.InvestigationExecutionConfirmation5Code;
-import com.swift.api.gpi.tracker_v2.model.InvestigationExecutionStatusReason1;
-import com.swift.api.gpi.tracker_v2.model.PaymentCancellationRejection3Code;
-import com.swift.api.gpi.tracker_v2.model.PendingPaymentCancellationReason1Code;
-import com.swift.api.gpi.tracker_v2.model.TransactionCancellationStatusRequest;
+import com.swift.api.gpi.trackerv2.ApiException;
+import com.swift.api.gpi.trackerv2.ApiResponse;
+import com.swift.api.gpi.trackerv2.api.CancellationStatusConfirmationsApi;
+import com.swift.api.gpi.trackerv2.helper.UtilHelper;
+import com.swift.api.gpi.trackerv2.model.CamtA0700102;
+import com.swift.api.gpi.trackerv2.model.CamtA0700202;
+import com.swift.api.gpi.trackerv2.model.CancellationResponseDetails1;
+import com.swift.api.gpi.trackerv2.model.InvestigationExecutionConfirmation5Code;
+import com.swift.api.gpi.trackerv2.model.InvestigationExecutionStatusReason1;
+import com.swift.api.gpi.trackerv2.model.PaymentCancellationRejection3Code;
+import com.swift.api.gpi.trackerv2.model.PendingPaymentCancellationReason1Code;
+import com.swift.api.gpi.trackerv2.model.TransactionCancellationStatusRequest;
 
 import junitparams.JUnitParamsRunner;
 
@@ -59,14 +59,7 @@ public class CancellationStatusConfirmationsApiExampleTest {
 		xApi = UtilHelper.getInstance().mymap.get("xApi");
 		signnature_required = Boolean.parseBoolean(
 				UtilHelper.getInstance().mymap.get("CancellationStatusConfirmationsApiTest.signatureRequired"));
-		uri = null;
-		api.getApiClient().setBasePath("https://sandbox.swiftlab-api-developer.com/swift-apitracker-pilot/v2");
 
-		try {
-			uri = new URI(api.getApiClient().getBasePath());
-		} catch (URISyntaxException ex) {
-			Logger.getLogger("Tracker API").log(Level.SEVERE, null, ex);
-		}
 	}
 
 	@Test
