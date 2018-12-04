@@ -1,4 +1,4 @@
-package com.swift.gpi.tracker_v2.api;
+package com.swift.api.gpi.tracker_v2.api;
 
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
@@ -7,15 +7,14 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import com.swift.gpi.tracker_v2.ApiException;
-import com.swift.gpi.tracker_v2.ApiResponse;
-import com.swift.gpi.tracker_v2.model.CamtA0300103;
-import com.swift.gpi.tracker_v2.model.CamtA0300203;
-import com.swift.gpi.tracker_v2.model.DateTimePeriodDetails;
-import com.swift.gpi.tracker_v2.model.GetPaymentTransactionsRequest;
+import com.swift.api.gpi.tracker_v2.ApiException;
+import com.swift.api.gpi.tracker_v2.ApiResponse;
+import com.swift.api.gpi.tracker_v2.model.CamtA0300103;
+import com.swift.api.gpi.tracker_v2.model.CamtA0300203;
+import com.swift.api.gpi.tracker_v2.model.DateTimePeriodDetails;
+import com.swift.api.gpi.tracker_v2.model.GetPaymentTransactionsRequest;
 
 /**
  * API tests for GetPaymentTransactionsApi

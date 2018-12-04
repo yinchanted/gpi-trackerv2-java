@@ -9,7 +9,7 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<groupId>com.swift.gpi</groupId>
+	<groupId>com.swift.api.gpi</groupId>
 	<artifactId>tracker-v2</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
@@ -52,9 +52,9 @@
 							<inputSpec>${project.build.directory}/swagger-gpiv2.json</inputSpec>
 							<language>java</language>
 							<output>${project.build.directory}/generated-sources</output>
-							<apiPackage>com.swift.gpi.tracker-v2.api</apiPackage>
-							<modelPackage>com.swift.gpi.tracker-v2.model</modelPackage>
-							<invokerPackage>com.swift.gpi.tracker-v2</invokerPackage>
+							<apiPackage>com.swift.api.gpi.tracker-v2.api</apiPackage>
+							<modelPackage>com.swift.api.gpi.tracker-v2.model</modelPackage>
+							<invokerPackage>com.swift.api.gpi.tracker-v2</invokerPackage>
 						</configuration>
 					</execution>
 				</executions>

@@ -1,4 +1,4 @@
-package com.swift.gpi.tracker_v2.example;
+package com.swift.api.gpi.tracker_v2.example;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
@@ -16,25 +16,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.github.fge.jsonschema.core.report.ProcessingReport;
-import com.swift.gpi.tracker_v2.ApiException;
-import com.swift.gpi.tracker_v2.ApiResponse;
-import com.swift.gpi.tracker_v2.api.GetPaymentTransactionDetailsApi;
-import com.swift.gpi.tracker_v2.helper.UtilHelper;
-import com.swift.gpi.tracker_v2.model.CamtA0200103;
-import com.swift.gpi.tracker_v2.model.CamtA0200203;
-import com.swift.gpi.tracker_v2.model.GetPaymentTransactionDetailsRequest;
+import com.swift.api.gpi.tracker_v2.ApiException;
+import com.swift.api.gpi.tracker_v2.ApiResponse;
+import com.swift.api.gpi.tracker_v2.api.GetPaymentTransactionsApi;
+import com.swift.api.gpi.tracker_v2.helper.UtilHelper;
+import com.swift.api.gpi.tracker_v2.model.CamtA0300103;
+import com.swift.api.gpi.tracker_v2.model.CamtA0300203;
+import com.swift.api.gpi.tracker_v2.model.DateTimePeriodDetails;
+import com.swift.api.gpi.tracker_v2.model.GetPaymentTransactionsRequest;
 
-import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 
 /**
- * API tests for GetPaymentTransactionDetailsApi
+ * API tests for GetPaymentTransactionsApi
  */
 @RunWith(JUnitParamsRunner.class)
-public class GetPaymentTransactionDetailsApiExampleTest {
+public class GetPaymentTransactionsApiExampleTest {
 
-	private final static GetPaymentTransactionDetailsApi api = new GetPaymentTransactionDetailsApi();
+	private final static GetPaymentTransactionsApi api = new GetPaymentTransactionsApi();
 
 	static String laUApplicationID;
 	static String laUVersion;
@@ -58,8 +57,8 @@ public class GetPaymentTransactionDetailsApiExampleTest {
 		laUSigned = UtilHelper.getInstance().mymap.get("laUSigned");
 		laUSignature = UtilHelper.getInstance().mymap.get("laUSignature");
 		xApi = UtilHelper.getInstance().mymap.get("xApi");
-		signnature_required = Boolean.parseBoolean(
-				UtilHelper.getInstance().mymap.get("GetPaymentTransactionDetailsApiTest.signatureRequired"));
+		signnature_required = Boolean
+				.parseBoolean(UtilHelper.getInstance().mymap.get("GetPaymentTransactionsApiTest.signatureRequired"));
 		uri = null;
 		api.getApiClient().setBasePath("https://sandbox.swiftlab-api-developer.com/swift-apitracker-pilot/v2");
 
@@ -71,16 +70,18 @@ public class GetPaymentTransactionDetailsApiExampleTest {
 	}
 
 	@Test
-	public void getPaymentTransactionDetailsPostTest() throws ApiException, NoSuchAlgorithmException, IOException,
-			ProcessingException, URISyntaxException, InterruptedException {
+	public void getPaymentTransactionsPostTest()
+			throws ApiException, NoSuchAlgorithmException, IOException, InterruptedException {
 		Thread.sleep(2000);
-		CamtA0200103 requestBody = new CamtA0200103();
-		requestBody.setGetPaymentTransactionDetailsRequest(new GetPaymentTransactionDetailsRequest());
+		CamtA0300103 requestBody = new CamtA0300103();
+		requestBody.setGetPaymentTransactionsRequest(new GetPaymentTransactionsRequest());
 		List<String> myInstitution = asList("CCLABEB0");
-		requestBody.getGetPaymentTransactionDetailsRequest().setMyInstitution(myInstitution);
-		requestBody.getGetPaymentTransactionDetailsRequest().setUetr("34d1fcca-5c17-41d4-bd59-723ec1940a0f");
-
-		// requestBody.getGetPaymentTransactionDetailsRequest().setTransactionIdentification("a2949d20-53d6-4999-85f5-f4a0dd9adf40");
+		requestBody.getGetPaymentTransactionsRequest().setMyInstitution(myInstitution);
+		requestBody.getGetPaymentTransactionsRequest().setTimeWindow(new DateTimePeriodDetails());
+		requestBody.getGetPaymentTransactionsRequest().getTimeWindow().setFromDateTime("2017-06-17T09:45:16.058Z");
+		requestBody.getGetPaymentTransactionsRequest().getTimeWindow().setToDateTime("2017-06-18T09:45:16.058Z");
+		// requestBody.getGetPaymentTransactionsRequest().setEvent(PaymentTransactionState1Code.RCCA);
+		requestBody.getGetPaymentTransactionsRequest().setMaximumNumber("10");
 
 		// Print the JSON structure constructed
 		System.out.println(api.getApiClient().getJSON().serialize(requestBody));
@@ -88,28 +89,31 @@ public class GetPaymentTransactionDetailsApiExampleTest {
 		// TODO: Set always to 'true' and provide gpi Connector's certificate
 		// for a production environment
 		api.getApiClient().setVerifyingSsl(true);
+		// api.getApiClient().setSslCaCert(sslCaCert);
+		// api.getApiClient().setKeyManagers(managers);
 
-		ApiResponse<CamtA0200203> response = api.getPaymentTransactionDetailsPostWithHttpInfo(laUApplicationID,
-				laUVersion, laUCallTime, laURequestNonce, laUSigned, laUSignature, xApi, requestBody);
+		// Call API
+
+		ApiResponse<CamtA0300203> response = api.getPaymentTransactionsPostWithHttpInfo(laUApplicationID, laUVersion,
+				laUCallTime, laURequestNonce, laUSigned, laUSignature, xApi, requestBody);
 		// Print response
-		CamtA0200203 responseBody = response.getData();
+		CamtA0300203 responseBody = response.getData();
 		System.out.println(api.getApiClient().getJSON().serialize(responseBody));
-		System.out.println(response.getStatusCode());
 
 	}
 
 	@Test
-	public void getPaymentTransactionDetailsPost404ErrorTest() throws ApiException, NoSuchAlgorithmException,
-			IOException, ProcessingException, URISyntaxException, InterruptedException {
+	public void getPaymentTransactionsPost404ErrorTest() throws ApiException, NoSuchAlgorithmException, IOException,
+			ProcessingException, URISyntaxException, InterruptedException {
 		Thread.sleep(2000);
-		CamtA0200103 requestBody = new CamtA0200103();
-		CamtA0200203 responseBody = null;
+		CamtA0300103 requestBody = new CamtA0300103();
+		CamtA0300203 responseBody = null;
 		try {
-			ApiResponse<CamtA0200203> response = api.getPaymentTransactionDetailsPostWithHttpInfo(laUApplicationID,
+			ApiResponse<CamtA0300203> response = api.getPaymentTransactionsPostWithHttpInfo(laUApplicationID,
 					laUVersion, laUCallTime, laURequestNonce, laUSigned, laUSignature, xApi, requestBody);
 			// Print response
 			responseBody = response.getData();
-			System.out.println(responseBody.getGetPaymentTransactionDetailsResponse());
+			System.out.println(responseBody.getGetPaymentTransactionsResponse());
 			System.out.println(api.getApiClient().getJSON().serialize(responseBody));
 		} catch (ApiException e) {
 			// TODO: handle exception
@@ -121,17 +125,17 @@ public class GetPaymentTransactionDetailsApiExampleTest {
 	}
 
 	@Test
-	public void getPaymentTransactionDetailsPost401ErrorTestWithInvalidXApi() throws ApiException,
-			NoSuchAlgorithmException, IOException, ProcessingException, URISyntaxException, InterruptedException {
+	public void getPaymentTransactionsPost401ErrorTestWithInvalidXApi() throws ApiException, NoSuchAlgorithmException,
+			IOException, ProcessingException, URISyntaxException, InterruptedException {
 		Thread.sleep(2000);
-		CamtA0200103 requestBody = new CamtA0200103();
-		CamtA0200203 responseBody = null;
+		CamtA0300103 requestBody = new CamtA0300103();
+		CamtA0300203 responseBody = null;
 		try {
-			ApiResponse<CamtA0200203> response = api.getPaymentTransactionDetailsPostWithHttpInfo(laUApplicationID,
+			ApiResponse<CamtA0300203> response = api.getPaymentTransactionsPostWithHttpInfo(laUApplicationID,
 					laUVersion, laUCallTime, laURequestNonce, laUSigned, laUSignature, "wrong", requestBody);
 			// Print response
 			responseBody = response.getData();
-			System.out.println(responseBody.getGetPaymentTransactionDetailsResponse());
+			System.out.println(responseBody.getGetPaymentTransactionsResponse());
 			System.out.println(api.getApiClient().getJSON().serialize(responseBody));
 		} catch (ApiException e) {
 			// TODO: handle exception

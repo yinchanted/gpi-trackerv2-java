@@ -1,5 +1,5 @@
 
-package com.swift.gpi.tracker_v2.api;
+package com.swift.api.gpi.tracker_v2.api;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -7,17 +7,16 @@ import static org.mockito.Mockito.when;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.swift.gpi.tracker_v2.ApiException;
-import com.swift.gpi.tracker_v2.ApiResponse;
-import com.swift.gpi.tracker_v2.model.CamtA0700102;
-import com.swift.gpi.tracker_v2.model.CamtA0700202;
-import com.swift.gpi.tracker_v2.model.CancellationResponseDetails1;
-import com.swift.gpi.tracker_v2.model.InvestigationExecutionConfirmation5Code;
-import com.swift.gpi.tracker_v2.model.InvestigationExecutionStatusReason1;
-import com.swift.gpi.tracker_v2.model.PaymentCancellationRejection3Code;
-import com.swift.gpi.tracker_v2.model.PendingPaymentCancellationReason1Code;
-import com.swift.gpi.tracker_v2.model.TransactionCancellationStatusRequest;
-
+import com.swift.api.gpi.tracker_v2.ApiException;
+import com.swift.api.gpi.tracker_v2.ApiResponse;
+import com.swift.api.gpi.tracker_v2.model.CamtA0700102;
+import com.swift.api.gpi.tracker_v2.model.CamtA0700202;
+import com.swift.api.gpi.tracker_v2.model.CancellationResponseDetails1;
+import com.swift.api.gpi.tracker_v2.model.InvestigationExecutionConfirmation5Code;
+import com.swift.api.gpi.tracker_v2.model.InvestigationExecutionStatusReason1;
+import com.swift.api.gpi.tracker_v2.model.PaymentCancellationRejection3Code;
+import com.swift.api.gpi.tracker_v2.model.PendingPaymentCancellationReason1Code;
+import com.swift.api.gpi.tracker_v2.model.TransactionCancellationStatusRequest;
 
 public class CancellationStatusConfirmationsApiTest {
 
@@ -25,8 +24,7 @@ public class CancellationStatusConfirmationsApiTest {
 	public void cancellationStatusConfirmationsPostTest() throws ApiException {
 
 		CancellationStatusConfirmationsApi api = mock(CancellationStatusConfirmationsApi.class);
-		ApiResponse<CamtA0700202> mock_Response=(ApiResponse<CamtA0700202>)mock(ApiResponse.class);
-
+		ApiResponse<CamtA0700202> mock_Response = (ApiResponse<CamtA0700202>) mock(ApiResponse.class);
 
 		CamtA0700102 requestBody = new CamtA0700102();
 		requestBody.setTransactionCancellationStatusRequest(new TransactionCancellationStatusRequest());

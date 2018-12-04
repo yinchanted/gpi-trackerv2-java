@@ -1,14 +1,12 @@
 
-package com.swift.gpi.tracker_v2.example;
+package com.swift.api.gpi.tracker_v2.example;
 
-import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,24 +15,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.github.fge.jsonschema.core.report.ProcessingReport;
-import com.swift.gpi.tracker_v2.ApiException;
-import com.swift.gpi.tracker_v2.ApiResponse;
-import com.swift.gpi.tracker_v2.api.StatusConfirmationsApi;
-import com.swift.gpi.tracker_v2.helper.UtilHelper;
-import com.swift.gpi.tracker_v2.model.ActiveOrHistoricCurrencyAndAmount;
-import com.swift.gpi.tracker_v2.model.CamtA0100103;
-import com.swift.gpi.tracker_v2.model.CamtA0100202;
-import com.swift.gpi.tracker_v2.model.CurrencyExchange8;
-import com.swift.gpi.tracker_v2.model.PaymentReason1Code;
-import com.swift.gpi.tracker_v2.model.PaymentScenario1Code;
-import com.swift.gpi.tracker_v2.model.PaymentStatus3;
-import com.swift.gpi.tracker_v2.model.PaymentStatusType2Choice;
-import com.swift.gpi.tracker_v2.model.StatusDetails2;
-import com.swift.gpi.tracker_v2.model.TransactionIndividualStatus4Code;
-import com.swift.gpi.tracker_v2.model.UpdatePaymentStatusRequest;
+import com.swift.api.gpi.tracker_v2.ApiException;
+import com.swift.api.gpi.tracker_v2.ApiResponse;
+import com.swift.api.gpi.tracker_v2.api.StatusConfirmationsApi;
+import com.swift.api.gpi.tracker_v2.helper.UtilHelper;
+import com.swift.api.gpi.tracker_v2.model.ActiveOrHistoricCurrencyAndAmount;
+import com.swift.api.gpi.tracker_v2.model.CamtA0100103;
+import com.swift.api.gpi.tracker_v2.model.CamtA0100202;
+import com.swift.api.gpi.tracker_v2.model.PaymentReason1Code;
+import com.swift.api.gpi.tracker_v2.model.PaymentStatus3;
+import com.swift.api.gpi.tracker_v2.model.PaymentStatusType2Choice;
+import com.swift.api.gpi.tracker_v2.model.StatusDetails2;
+import com.swift.api.gpi.tracker_v2.model.TransactionIndividualStatus4Code;
+import com.swift.api.gpi.tracker_v2.model.UpdatePaymentStatusRequest;
 
-import junitparams.FileParameters;
 import junitparams.JUnitParamsRunner;
 
 /**
