@@ -1,4 +1,4 @@
-package com.swift.gpi.trackerv2.example;
+package com.swift.gpi.tracker.v2sdk.example;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,18 +14,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.swift.gpi.trackerv2.ApiException;
-import com.swift.gpi.trackerv2.ApiResponse;
-import com.swift.gpi.trackerv2.api.CancellationStatusConfirmationsApi;
-import com.swift.gpi.trackerv2.helper.UtilHelper;
-import com.swift.gpi.trackerv2.model.CamtA0700102;
-import com.swift.gpi.trackerv2.model.CamtA0700202;
-import com.swift.gpi.trackerv2.model.CancellationResponseDetails1;
-import com.swift.gpi.trackerv2.model.InvestigationExecutionConfirmation5Code;
-import com.swift.gpi.trackerv2.model.InvestigationExecutionStatusReason1;
-import com.swift.gpi.trackerv2.model.PaymentCancellationRejection3Code;
-import com.swift.gpi.trackerv2.model.PendingPaymentCancellationReason1Code;
-import com.swift.gpi.trackerv2.model.TransactionCancellationStatusRequest;
+import com.swift.gpi.tracker.v2sdk.ApiException;
+import com.swift.gpi.tracker.v2sdk.ApiResponse;
+import com.swift.gpi.tracker.v2sdk.api.CancellationStatusConfirmationsApi;
+import com.swift.gpi.tracker.v2sdk.helper.UtilHelper;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0700102;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0700202;
+import com.swift.gpi.tracker.v2sdk.model.CancellationResponseDetails1;
+import com.swift.gpi.tracker.v2sdk.model.InvestigationExecutionConfirmation5Code;
+import com.swift.gpi.tracker.v2sdk.model.InvestigationExecutionStatusReason1;
+import com.swift.gpi.tracker.v2sdk.model.PaymentCancellationRejection3Code;
+import com.swift.gpi.tracker.v2sdk.model.PendingPaymentCancellationReason1Code;
+import com.swift.gpi.tracker.v2sdk.model.TransactionCancellationStatusRequest;
 
 import junitparams.JUnitParamsRunner;
 

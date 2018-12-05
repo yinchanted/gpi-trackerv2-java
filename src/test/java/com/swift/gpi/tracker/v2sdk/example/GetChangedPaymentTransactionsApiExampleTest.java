@@ -1,4 +1,4 @@
-package com.swift.gpi.trackerv2.example;
+package com.swift.gpi.tracker.v2sdk.example;
 
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
@@ -14,13 +14,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.swift.gpi.trackerv2.ApiException;
-import com.swift.gpi.trackerv2.ApiResponse;
-import com.swift.gpi.trackerv2.api.GetChangedPaymentTransactionsApi;
-import com.swift.gpi.trackerv2.helper.UtilHelper;
-import com.swift.gpi.trackerv2.model.CamtA0400103;
-import com.swift.gpi.trackerv2.model.CamtA0400203;
-import com.swift.gpi.trackerv2.model.GetChangedPaymentTransactionsRequest;
+import com.swift.gpi.tracker.v2sdk.ApiException;
+import com.swift.gpi.tracker.v2sdk.ApiResponse;
+import com.swift.gpi.tracker.v2sdk.api.GetChangedPaymentTransactionsApi;
+import com.swift.gpi.tracker.v2sdk.helper.UtilHelper;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0400103;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0400203;
+import com.swift.gpi.tracker.v2sdk.model.GetChangedPaymentTransactionsRequest;
 
 import junitparams.JUnitParamsRunner;
 

@@ -1,4 +1,4 @@
-package com.swift.gpi.trackerv2.helper;
+package com.swift.gpi.tracker.v2sdk.helper;
 
 import java.io.File;
 import java.io.IOException;

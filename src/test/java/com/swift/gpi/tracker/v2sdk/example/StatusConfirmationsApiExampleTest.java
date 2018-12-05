@@ -1,5 +1,5 @@
 
-package com.swift.gpi.trackerv2.example;
+package com.swift.gpi.tracker.v2sdk.example;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,19 +13,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.github.fge.jsonschema.core.exceptions.ProcessingException;
-import com.swift.gpi.trackerv2.ApiException;
-import com.swift.gpi.trackerv2.ApiResponse;
-import com.swift.gpi.trackerv2.api.StatusConfirmationsApi;
-import com.swift.gpi.trackerv2.helper.UtilHelper;
-import com.swift.gpi.trackerv2.model.ActiveOrHistoricCurrencyAndAmount;
-import com.swift.gpi.trackerv2.model.CamtA0100103;
-import com.swift.gpi.trackerv2.model.CamtA0100202;
-import com.swift.gpi.trackerv2.model.PaymentReason1Code;
-import com.swift.gpi.trackerv2.model.PaymentStatus3;
-import com.swift.gpi.trackerv2.model.PaymentStatusType2Choice;
-import com.swift.gpi.trackerv2.model.StatusDetails2;
-import com.swift.gpi.trackerv2.model.TransactionIndividualStatus4Code;
-import com.swift.gpi.trackerv2.model.UpdatePaymentStatusRequest;
+import com.swift.gpi.tracker.v2sdk.ApiException;
+import com.swift.gpi.tracker.v2sdk.ApiResponse;
+import com.swift.gpi.tracker.v2sdk.api.StatusConfirmationsApi;
+import com.swift.gpi.tracker.v2sdk.helper.UtilHelper;
+import com.swift.gpi.tracker.v2sdk.model.ActiveOrHistoricCurrencyAndAmount;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0100103;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0100202;
+import com.swift.gpi.tracker.v2sdk.model.PaymentReason1Code;
+import com.swift.gpi.tracker.v2sdk.model.PaymentStatus3;
+import com.swift.gpi.tracker.v2sdk.model.PaymentStatusType2Choice;
+import com.swift.gpi.tracker.v2sdk.model.StatusDetails2;
+import com.swift.gpi.tracker.v2sdk.model.TransactionIndividualStatus4Code;
+import com.swift.gpi.tracker.v2sdk.model.UpdatePaymentStatusRequest;
 
 import junitparams.JUnitParamsRunner;
 

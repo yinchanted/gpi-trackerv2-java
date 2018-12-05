@@ -1,5 +1,5 @@
 
-package com.swift.gpi.trackerv2.api;
+package com.swift.gpi.tracker.v2sdk.api;
 
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
@@ -10,11 +10,11 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.swift.gpi.trackerv2.ApiException;
-import com.swift.gpi.trackerv2.ApiResponse;
-import com.swift.gpi.trackerv2.model.CamtA0200103;
-import com.swift.gpi.trackerv2.model.CamtA0200203;
-import com.swift.gpi.trackerv2.model.GetPaymentTransactionDetailsRequest;
+import com.swift.gpi.tracker.v2sdk.ApiException;
+import com.swift.gpi.tracker.v2sdk.ApiResponse;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0200103;
+import com.swift.gpi.tracker.v2sdk.model.CamtA0200203;
+import com.swift.gpi.tracker.v2sdk.model.GetPaymentTransactionDetailsRequest;
 
 public class GetPaymentTransactionDetailsApiTest {
 	ApiResponse<CamtA0200203> mock_ApiResponse = (ApiResponse<CamtA0200203>) mock(ApiResponse.class);
